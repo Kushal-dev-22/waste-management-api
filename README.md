@@ -24,9 +24,10 @@ Detects whether an image contains trash.
 **Response**:
 ```json
 {
-  "has_trash": true,
-  "confidence": 0.85,
-  "message": "Trash detected in the image"
+  "filename": "images204.jpg",
+  "stage": "Stage 1",
+  "prediction": "trash",
+  "confidence": 0.9980435371398926
 }
 ```
 
@@ -38,13 +39,10 @@ Classifies the amount of trash in the image.
 **Response**:
 ```json
 {
-  "trash_amount": "medium",
-  "confidence": 0.78,
-  "categories": {
-    "small": 0.15,
-    "medium": 0.78,
-    "large": 0.07
-  }
+  "filename": "95406aa8.jpg",
+  "stage": "Stage 2",
+  "prediction": "large",
+  "confidence": 0.8675705552101135
 }
 ```
 
@@ -58,9 +56,11 @@ Compares two images to check if trash was removed and if photos are from the sam
 **Response**:
 ```json
 {
-  "trash_removed": true,
-  "same_scene": true,
-  "confidence_trash_removal": 0.82,
-  "confidence_scene_match": 0.91
+  "primary_image": "lavagem_de.jpg",
+  "secondary_image": "images17_jpg",
+  "stage1_prediction": "no_trash",
+  "stage1_confidence": 0.9407783150672913,
+  "stage2_result": "Different Location",
+  "final_result": "No Trash, Different Location"
 }
 ```
